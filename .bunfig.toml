@@ -1,0 +1,17 @@
+# Bun 配置檔案
+[install]
+# 使用 npm 的 registry
+registry = "https://registry.npmjs.org/"
+# 啟用快取以提升效能
+cache = true
+# 開發依賴的安裝策略
+dev = true
+# 可選：設置鏡像站點（如果需要）
+# mirrors.registry = "https://registry.npmmirror.com"
+
+[log]
+level = "warn"  # 減少日誌輸出
+
+[test]
+# 測試相關配置
+timeout = 30000  # 測試超時時間（毫秒）
