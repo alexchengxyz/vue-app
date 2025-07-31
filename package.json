@@ -13,7 +13,7 @@
     "test:unit": "bun run vitest",
     "build-only": "bun run vite build",
     "type-check": "bun run vue-tsc --build",
-    "lint": "bun run eslint . --ext .js,.jsx,.ts,.tsx,.vue --fix --ignore-path .gitignore",
+    "lint": "bun run eslint . --ext .js,.jsx,.ts,.tsx,.vue",
     "format": "bun run prettier --write \"**/*.{js,jsx,ts,tsx,json,md,vue}\"",
     "lint:fix": "bun run lint --fix",
     "prepare": "bun run husky install",
