@@ -28,7 +28,6 @@
         "eslint-plugin-vue": "^10.3.0",
         "eslint-plugin-vue-pug": "0.6.2",
         "husky": "^9.1.7",
-        "jiti": "^2.4.2",
         "jsdom": "^26.1.0",
         "lint-staged": "^16.1.2",
         "npm-run-all2": "^8.0.4",
