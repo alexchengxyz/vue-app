@@ -38,6 +38,12 @@ export default defineConfigWithVueTs(
 	vueTsConfigs.recommended,
 
 	{
+		rules: {
+			'@typescript-eslint/no-unused-vars': 'off', // 暫時解決 pug 報錯問題
+		},
+	},
+
+	{
 		...pluginVitest.configs.recommended,
 		files: ['src/**/__tests__/*'],
 	},

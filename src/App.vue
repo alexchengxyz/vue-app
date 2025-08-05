@@ -1,8 +1,3 @@
-<script setup lang="ts">
-	// import { RouterLink, RouterView } from 'vue-router'
-	// import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template lang="pug">
 header
   img.logo(
@@ -20,6 +15,10 @@ header
 RouterView
 </template>
 
+<script setup lang="ts">
+	import { RouterLink, RouterView } from 'vue-router';
+	import HelloWorld from './components/HelloWorld.vue';
+</script>
 <style scoped>
 	header {
 		line-height: 1.5;
