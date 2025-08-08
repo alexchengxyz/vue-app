@@ -4,9 +4,8 @@
 
 ## 功能特色
 
-- ⚡️ [Vue 3](https://vuejs.org/), [Vite 4](https://vitejs.dev/), [pnpm](https://pnpm.io/), [ESBuild](https://esbuild.github.io/) - 快速且現代化的前端開發體驗
+- ⚡️ [Vue 3](https://vuejs.org/), [Vite 7](https://vitejs.dev/), [Bun](https://bun.sh/), [ESBuild](https://esbuild.github.io/) - 快速且現代化的前端開發體驗
 - 🦾 TypeScript 支援 - 使用 TypeScript 開發，提供更好的開發體驗和類型檢查
-- 🎨 [UnoCSS](https://unocss.dev/) - 即時原子化 CSS 引擎，快速構建 UI
 - 📦 元件自動導入 - 自動導入 Vue 和自定義元件
 - 🔥 使用新的 `<script setup>` 語法
 - 📥 API 自動導入 - 直接使用 Composition API 而無需導入
@@ -42,7 +41,7 @@ npm install
 
 ```bash
 # 啟動開發伺服器
-bun dev
+bun run dev
 
 # 或使用 npm
 npm run dev
@@ -65,54 +64,58 @@ bun run preview
 
 ```bash
 # 執行 ESLint 檢查
-bun lint
+bun run lint
 
 # 修復 ESLint 錯誤
-bun lint:fix
+bun run lint:fix
 
 # 格式化代碼
-bun format
+bun run format
 ```
 
 ### 執行測試
 
 ```bash
 # 運行單元測試
-bun test:unit
+bun run test:unit
 
 # 運行測試並生成覆蓋率報告
-bun test:unit --coverage
+bun run test:unit --coverage
 ```
 
 ## 專案結構
 
 ```
 vue-app/
-├── .github/            # GitHub 配置
+├── .bunfig.toml        # Bun 配置
+├── .editorconfig       # 編輯器設定
+├── .gitattributes      # Git 屬性
+├── .gitignore          # Git 忽略文件
 ├── .husky/             # Git hooks 配置
+├── .npmrc              # npm 設定
+├── .prettierrc.json    # Prettier 配置
+├── .vscode/            # VS Code 設定
+├── bun.lock            # Bun 鎖定檔
+├── env.d.ts            # TypeScript 環境宣告
+├── eslint.config.js    # ESLint 配置
+├── index.html          # HTML 模板
+├── package.json        # 項目配置
 ├── public/             # 靜態資源
 ├── src/
 │   ├── assets/         # 圖片等靜態資源
 │   ├── components/     # 可複用組件
-│   ├── composables/    # 組合式函數
-│   ├── layouts/        # 佈局組件
 │   ├── router/         # 路由配置
 │   ├── stores/         # Pinia 狀態管理
-│   ├── styles/         # 全局樣式
-│   ├── utils/          # 工具函數
 │   ├── views/          # 頁面組件
 │   ├── App.vue         # 根組件
 │   └── main.ts         # 入口文件
-├── .editorconfig       # 編輯器配置
-├── .eslintrc.js        # ESLint 配置
-├── .gitignore          # Git 忽略文件
-├── .npmrc             # npm 配置
-├── .bunfig.toml       # bun 配置
-├── index.html          # HTML 模板
-├── package.json        # 項目配置
-├── README.md           # 項目文檔
-├── tsconfig.json       # TypeScript 配置
-└── vite.config.ts      # Vite 配置
+├── tsconfig.app.json   # TypeScript 應用設定
+├── tsconfig.json       # TypeScript 基本設定
+├── tsconfig.node.json  # Node 用 TypeScript 設定
+├── tsconfig.vitest.json# 測試用 TypeScript 設定
+├── vite.config.ts      # Vite 配置
+├── vitest.config.ts    # Vitest 配置
+└── README.md           # 項目文檔
 ```
 
 ## 開發規範
