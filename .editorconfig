@@ -1,8 +1,24 @@
+# editorconfig.org
+root = true
+
+# 主設定：所有常見程式與樣式檔案
 [*.{js,jsx,mjs,cjs,ts,tsx,mts,cts,vue,css,scss,sass,less,styl}]
 charset = utf-8
-indent_size = 2
 indent_style = space
+indent_size = 2
+end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
-end_of_line = lf
-max_line_length = 100
+
+# Markdown：不修剪尾端空白
+[*.md]
+trim_trailing_whitespace = false
+
+# YAML：強制使用空格（不能用 tab）
+[*.yml]
+indent_style = space
+indent_size = 2
+
+[*.yaml]
+indent_style = space
+indent_size = 2
