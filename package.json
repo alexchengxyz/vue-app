@@ -13,11 +13,15 @@
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "test:unit": "vitest --run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint:fix": "eslint . --fix",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.vue",
     "format": "prettier --write .",
+    "prepare": "husky",
+    "pre-commit": "lint-staged",
     "reinstall": "rm -rf node_modules && bun install",
     "check:node": "nvm use && npm ci && npm run build && npm run type-check && npm run test:unit",
     "check:bun": "bun install && bun run build && bun run test:unit"
@@ -43,13 +47,16 @@
     "@tsconfig/node22": "^22.0.2",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.16.5",
+    "@typescript-eslint/parser": "^8.38.0",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitest/eslint-plugin": "^1.3.4",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/language-plugin-pug": "^3.0.5",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.33.0",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "eslint-plugin-vue": "^10.4.0",
     "husky": "^9.1.7",
@@ -59,6 +66,7 @@
     "npm-run-all2": "^8.0.4",
     "prettier": "^3.6.2",
     "prettier-plugin-packagejson": "^2.5.19",
+    "pug": "^3.0.3",
     "typescript": "~5.8.0",
     "unplugin-auto-import": "^20.0.0",
     "unplugin-vue-components": "^29.0.0",
@@ -66,11 +74,7 @@
     "vite-plugin-checker": "^0.10.2",
     "vite-plugin-vue-devtools": "^8.0.0",
     "vitest": "^3.2.4",
+    "vue-eslint-parser": "^10.2.0",
     "vue-tsc": "^3.0.5"
-  },
-  "overrides": {
-    "@typescript-eslint/eslint-plugin": "^8.3.0",
-    "@typescript-eslint/parser": "^8.3.0",
-    "@typescript-eslint/typescript-estree": "^8.3.0"
   }
 }

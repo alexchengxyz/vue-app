@@ -1,8 +1,185 @@
-# vue-app
+# Vue 3 現代化開發環境
 
-vue 3 + bun + vite + typescript + eslint + prettier + pinia + vue-router 初始專案
+[![Vue 3](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](https://vuejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
+[![Bun](https://img.shields.io/badge/Bun-000000?style=for-the-badge&logo=bun&logoColor=white)](https://bun.sh/)
 
-## 專案配置說明
+## 目錄
+
+- [專案概述](#專案概述)
+- [✨ 功能特點](#-功能特點)
+- [🚀 快速開始](#-快速開始)
+  - [前置需求](#前置需求)
+  - [安裝與執行](#安裝與執行)
+- [📁 專案結構](#-專案結構)
+- [⚙️ 專案配置](#️-專案配置)
+  - [TypeScript 配置](#typescript-配置)
+  - [開發工具配置](#開發工具配置)
+- [📦 專案套件](#-專案套件)
+- [🛠️ 開發指令](#️-開發指令)
+- [🧪 測試](#-測試)
+- [🔧 代碼規範](#-代碼規範)
+- [📝 提交規範](#-提交規範)
+
+## 專案概述
+
+這是一個基於 Vue 3 的現代化前端開發環境，整合了以下技術棧：
+
+- **前端框架**：Vue 3
+- **建置工具**：Vite + Bun
+- **程式語言**：TypeScript
+- **狀態管理**：Pinia
+- **路由管理**：Vue Router
+- **代碼規範**：ESLint + Prettier + Husky
+- **測試框架**：Vitest + Vue Test Utils
+
+## ✨ 功能特點
+
+- ⚡ **極速開發**：使用 Vite 和 Bun 提供快速的開發體驗
+- 🛡️ **類型安全**：完整的 TypeScript 支援
+- 🎨 **統一代碼風格**：整合 ESLint 和 Prettier
+- 🔧 **自動化**：Husky + lint-staged 自動化代碼檢查與格式化
+- 🧪 **測試完善**：整合 Vitest 進行單元測試
+
+## 🚀 快速開始
+
+### 前置需求
+
+- Node.js 22.18.0
+- Bun 1.2.20
+
+### 安裝與執行
+
+1. 安裝依賴：
+
+   ```bash
+   # 使用 bun
+   bun install
+
+   # 或使用 npm
+   npm install
+   ```
+
+2. 啟動開發伺服器：
+
+   ```bash
+   npm run dev
+   ```
+
+3. 建置生產版本：
+   ```bash
+   npm run build
+   ```
+
+## 📁 專案結構
+
+```
+src/
+├── assets/          # 靜態資源
+├── components/      # 共用組件
+├── router/          # 路由配置
+├── stores/          # Pinia 狀態管理
+├── views/           # 頁面組件
+├── App.vue          # 根組件
+└── main.ts          # 應用入口
+```
+
+## ⚙️ 專案配置
+
+### TypeScript 配置
+
+專案包含多個 TypeScript 配置檔案：
+
+- `tsconfig.json` - 基礎配置
+- `tsconfig.app.json` - 應用程式配置
+- `tsconfig.node.json` - Node.js 環境配置
+- `tsconfig.vitest.json` - 測試環境配置
+
+### 開發工具配置
+
+- **Vite** - `vite.config.ts`
+- **ESLint** - `eslint.config.js`
+- **Prettier** - `.prettierrc.json`
+- **Husky** - `.husky/`
+- **Commitlint** - `commitlint.config.js`
+
+## 📦 專案套件
+
+### 核心依賴
+
+- `vue` - Vue 3 核心庫
+- `pinia` - 狀態管理
+- `vue-router` - 路由管理
+
+### 開發工具
+
+- `@vitejs/plugin-vue` - Vite 的 Vue 插件
+- `unplugin-auto-import` - 自動導入 API
+- `unplugin-vue-components` - 自動導入組件
+
+### 代碼質量
+
+- `eslint` - 代碼檢查
+- `prettier` - 代碼格式化
+- `husky` - Git hooks
+- `lint-staged` - 暫存區代碼檢查
+
+### 測試
+
+- `vitest` - 測試框架
+- `@vue/test-utils` - Vue 組件測試
+- `jsdom` - 瀏覽器環境模擬
+
+## 🛠️ 開發指令
+
+| 指令                 | 說明           |
+| -------------------- | -------------- |
+| `npm run dev`        | 啟動開發伺服器 |
+| `npm run build`      | 建置生產版本   |
+| `npm run preview`    | 預覽生產版本   |
+| `npm run type-check` | 類型檢查       |
+| `npm run lint`       | 代碼檢查       |
+| `npm run format`     | 代碼格式化     |
+| `npm run test:unit`  | 執行單元測試   |
+
+## 🧪 測試
+
+執行單元測試：
+
+```bash
+npm run test:unit
+```
+
+## 🔧 代碼規範
+
+專案使用 ESLint 和 Prettier 進行代碼規範檢查與格式化。
+
+- **ESLint 配置**：`eslint.config.js`
+- **Prettier 配置**：`.prettierrc.json`
+
+## 📝 提交規範
+
+專案使用 Conventional Commits 規範提交訊息：
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### 提交類型
+
+- `feat`: 新功能
+- `fix`: 修復錯誤
+- `docs`: 文檔更新
+- `style`: 代碼格式調整
+- `refactor`: 重構代碼
+- `perf`: 性能優化
+- `test`: 測試相關
+- `chore`: 構建過程或輔助工具的變動
 
 ### tsconfig.app.json 設定說明
 
