@@ -1,4 +1,5 @@
 import pluginVue from 'eslint-plugin-vue'
+import vueParser from 'vue-eslint-parser'
 import ts from '@vue/eslint-config-typescript'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 import unused from 'eslint-plugin-unused-imports'
@@ -30,6 +31,20 @@ const globalBlockBun = {
   },
   rules: {
     'no-restricted-globals': ['error', 'Bun'],
+  },
+}
+
+// 讓 .vue 檔正確使用 vue-eslint-parser
+const vueParserConfig = {
+  files: ['**/*.vue'],
+  languageOptions: {
+    parser: vueParser,
+    parserOptions: {
+      parser: '@typescript-eslint/parser',
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      extraFileExtensions: ['.vue'],
+    },
   },
 }
 
@@ -126,6 +141,9 @@ const suppressVueNoUsedVars = {
 
 export default [
   { ignores: ['dist', 'node_modules', '.vite', 'coverage', '**/*.d.ts'] },
+
+  // 確保 .vue 檔 parser 正確
+  vueParserConfig,
 
   // Vue + TS 推薦規則
   ...pluginVue.configs['flat/recommended'],

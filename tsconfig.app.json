@@ -23,6 +23,9 @@
       "@/*": ["./src/*"]
     }
   },
+  "vueCompilerOptions": {
+    "plugins": ["@vue/language-plugin-pug"]
+  },
   "references": [
     {
       "path": "./tsconfig.node.json"
