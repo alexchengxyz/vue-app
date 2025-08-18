@@ -1,0 +1,18 @@
+/* 重置樣式(自訂義頁面預設樣式)、PrimeVue 主題、自訂主題(變更 PrimeVue CSS 變數) */
+@use 'mixins' as *;
+@layer reset, primevue, customTheme;
+
+@layer reset {
+}
+
+@layer customTheme {
+  :root {
+    --p-primary-color: #404040;
+    --p-inputtext-focus-border-color: #eadcba;
+  }
+}
+
+body {
+  background-color: var(--gray);
+  @include bg-color(#ddd);
+}

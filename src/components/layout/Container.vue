@@ -4,9 +4,9 @@ main.container
 </template>
 
 <style scoped>
-  .container {
-    flex: 1;
-    padding: 32px;
-    overflow-y: auto;
-  }
+.container {
+  flex: 1;
+  padding: 32px;
+  overflow-y: auto;
+}
 </style>

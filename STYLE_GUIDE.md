@@ -53,100 +53,100 @@
 </template>
 
 <script lang="ts" setup>
-  import { ref, computed, onMounted } from 'vue';
-  import { useRouter } from 'vue-router';
-  import { useSomeStore } from '@/stores/someStore';
+import { ref, computed, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import { useSomeStore } from '@/stores/someStore';
 
-  // Props 定義
-  const props = defineProps({
-    // 必填的字符串屬性
-    title: {
-      type: String,
-      required: true,
-      validator: (value: string) => value.length > 0,
-    },
-    // 可選的數字屬性，帶有預設值
-    initialCount: {
-      type: Number,
-      default: 0,
-      validator: (value: number) => value >= 0,
-    },
-  });
+// Props 定義
+const props = defineProps({
+  // 必填的字符串屬性
+  title: {
+    type: String,
+    required: true,
+    validator: (value: string) => value.length > 0,
+  },
+  // 可選的數字屬性，帶有預設值
+  initialCount: {
+    type: Number,
+    default: 0,
+    validator: (value: number) => value >= 0,
+  },
+});
 
-  // 發射事件定義
-  const emit = defineEmits<{
-    (e: 'count-updated', value: number): void;
-    (e: 'reset'): void;
-  }>();
+// 發射事件定義
+const emit = defineEmits<{
+  (e: 'count-updated', value: number): void;
+  (e: 'reset'): void;
+}>();
 
-  // 使用 Store
-  const store = useSomeStore();
+// 使用 Store
+const store = useSomeStore();
 
-  // 響應式狀態
-  const count = ref(props.initialCount);
-  const showDetails = ref(false);
-  const router = useRouter();
+// 響應式狀態
+const count = ref(props.initialCount);
+const showDetails = ref(false);
+const router = useRouter();
 
-  // 計算屬性
-  const message = computed(() => {
-    return `當前計數是: ${count.value}`;
-  });
+// 計算屬性
+const message = computed(() => {
+  return `當前計數是: ${count.value}`;
+});
 
-  // 方法
-  function increment() {
-    count.value++;
-    emit('count-updated', count.value);
+// 方法
+function increment() {
+  count.value++;
+  emit('count-updated', count.value);
+}
+
+function reset() {
+  count.value = 0;
+  emit('reset');
+}
+
+// 生命週期鉤子
+onMounted(() => {
+  console.log('元件已掛載');
+  // 獲取初始數據
+  fetchData();
+});
+
+// 異步方法
+async function fetchData() {
+  try {
+    await store.fetchSomeData();
+  } catch (error) {
+    console.error('獲取數據失敗:', error);
   }
+}
 
-  function reset() {
-    count.value = 0;
-    emit('reset');
-  }
-
-  // 生命週期鉤子
-  onMounted(() => {
-    console.log('元件已掛載');
-    // 獲取初始數據
-    fetchData();
-  });
-
-  // 異步方法
-  async function fetchData() {
-    try {
-      await store.fetchSomeData();
-    } catch (error) {
-      console.error('獲取數據失敗:', error);
-    }
-  }
-
-  // 暴露給父元件的方法
-  defineExpose({
-    reset,
-    getCount: () => count.value,
-  });
+// 暴露給父元件的方法
+defineExpose({
+  reset,
+  getCount: () => count.value,
+});
 </script>
 
 <style scoped>
-  .component-name {
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: var(--color-background-soft);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+.component-name {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-background-soft);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  button {
-    padding: 0.5rem 1rem;
-    background-color: var(--color-primary);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-  }
+button {
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
 
-  button:hover {
-    background-color: var(--color-primary-dark);
-  }
+button:hover {
+  background-color: var(--color-primary-dark);
+}
 </style>
 ```
 

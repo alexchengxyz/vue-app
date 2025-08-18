@@ -1,0 +1,11 @@
+/* 此頁用於樣式庫 mixin 相關樣式，不參與編譯 */
+@use 'sass:color';
+
+@mixin bg-color($color) {
+  background-color: $color;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: color.scale(#3498db, $lightness: -10%);
+  }
+}

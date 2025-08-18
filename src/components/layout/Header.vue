@@ -7,12 +7,12 @@
 <script setup lang="ts"></script>
 
 <style scoped>
-  .header {
-    height: 64px;
-    background: #222;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-  }
+.header {
+  height: 64px;
+  background: #222;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
 </style>

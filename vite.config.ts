@@ -39,11 +39,18 @@ export default defineConfig({
     alias: {
       // 支援 @ 為 src 快捷路徑
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@styles': fileURLToPath(new URL('./src/assets/styles', import.meta.url)),
     },
   },
   server: {
     host: '0.0.0.0', // 允許外部訪問（所有 IP 皆可存取本機 server）
-    port: 5173, // 設定開發伺服器執行在 5173 port
+    port: 5174, // 設定開發伺服器執行在 5173 port
     strictPort: true, // 若 5173 被佔用，Vite 不會自動切換成其他 port，直接報錯
+  },
+  css: {
+    devSourcemap: false,
+  },
+  build: {
+    sourcemap: false,
   },
 });
