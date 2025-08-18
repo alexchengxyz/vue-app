@@ -1,9 +1,10 @@
 <template lang="pug">
 header
   .wrapper
-    nav
-      RouterLink(to="/") Home
-      RouterLink(to="/about") About
+  Button(label="Button")
+  nav
+    RouterLink(to="/") Home
+    RouterLink(to="/about") About
 
 RouterView
 </template>
