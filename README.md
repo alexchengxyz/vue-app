@@ -1,60 +1,50 @@
-# Vue 3 現代化開發環境
+# Vue 3 現代化前端專案
 
 [![Vue 3](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)](https://vuejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E)](https://vitejs.dev/)
 [![Bun](https://img.shields.io/badge/Bun-000000?style=for-the-badge&logo=bun&logoColor=white)](https://bun.sh/)
+[![PrimeVue](https://img.shields.io/badge/PrimeVue-4.3.7-2196F3?style=for-the-badge&logo=prime)](https://primevue.org/)
 
 ## 目錄
 
-- [專案概述](#專案概述)
 - [✨ 功能特點](#-功能特點)
 - [🚀 快速開始](#-快速開始)
   - [前置需求](#前置需求)
   - [安裝與執行](#安裝與執行)
+- [🛠️ 開發工作流](#️-開發工作流)
+  - [開發指令](#-開發指令)
+  - [代碼規範](#-代碼規範)
+  - [提交規範](#-提交規範)
 - [📁 專案結構](#-專案結構)
 - [⚙️ 專案配置](#️-專案配置)
   - [TypeScript 配置](#typescript-配置)
   - [開發工具配置](#開發工具配置)
-- [📦 專案套件](#-專案套件)
-- [🛠️ 開發指令](#️-開發指令)
 - [🧪 測試](#-測試)
-- [🔧 代碼規範](#-代碼規範)
-- [📝 提交規範](#-提交規範)
-
-## 專案概述
-
-這是一個基於 Vue 3 的現代化前端開發環境，整合了以下技術棧：
-
-- **前端框架**：Vue 3
-- **建置工具**：Vite + Bun
-- **程式語言**：TypeScript
-- **狀態管理**：Pinia
-- **路由管理**：Vue Router
-- **代碼規範**：ESLint + Prettier + Husky
-- **測試框架**：Vitest + Vue Test Utils
+- [📦 專案套件](#-專案套件)
 
 ## ✨ 功能特點
 
-- ⚡ **極速開發**：使用 Vite 和 Bun 提供快速的開發體驗
-- 🛡️ **類型安全**：完整的 TypeScript 支援
-- 🎨 **統一代碼風格**：整合 ESLint 和 Prettier
-- 🔧 **自動化**：Husky + lint-staged 自動化代碼檢查與格式化
-- 🧪 **測試完善**：整合 Vitest 進行單元測試
+- ⚡ **極速開發**：Vite + Bun 提供即時模組熱更新
+- 🛡️ **類型安全**：完整的 TypeScript 支援與型別檢查
+- 🎨 **專業 UI**：整合 PrimeVue 豐富的元件庫
+- 🔧 **自動化工作流**：Husky + lint-staged 自動化代碼檢查與格式化
+- 🧪 **測試驅動**：整合 Vitest 進行單元測試與覆蓋率報告
+- 🌐 **現代化架構**：基於 Composition API 的模組化設計
 
 ## 🚀 快速開始
 
 ### 前置需求
 
-- Node.js 22.18.0
-- Bun 1.2.20
+- Node.js 22.18.0 或更高版本
+- Bun 1.2.20 或更高版本
 
 ### 安裝與執行
 
 1. 安裝依賴：
 
    ```bash
-   # 使用 bun
+   # 使用 bun (推薦)
    bun install
 
    # 或使用 npm
@@ -64,22 +54,103 @@
 2. 啟動開發伺服器：
 
    ```bash
+   # 開發模式
+   bun dev
+
+   # 或使用 npm
    npm run dev
    ```
 
 3. 建置生產版本：
+
    ```bash
+   # 建置生產環境
+   bun build
+
+   # 或使用 npm
    npm run build
    ```
+
+4. 預覽生產版本：
+   ```bash
+   bun preview
+   # 或
+   npm run preview
+   ```
+
+## 🛠️ 開發工作流
+
+### 🚀 開發指令
+
+| 指令                | 說明                          |
+| ------------------- | ----------------------------- |
+| `bun dev`           | 啟動開發伺服器                |
+| `bun build`         | 建置生產版本                  |
+| `bun preview`       | 預覽生產版本                  |
+| `bun test:unit`     | 執行單元測試                  |
+| `bun test:coverage` | 產生測試覆蓋率報告            |
+| `bun type-check`    | 執行 TypeScript 類型檢查      |
+| `bun lint`          | 執行 ESLint 代碼檢查          |
+| `bun lint:fix`      | 自動修復可修復的 ESLint 問題  |
+| `bun format`        | 使用 Prettier 格式化代碼      |
+| `bun reinstall`     | 重新安裝所有依賴              |
+| `bun check:node`    | 使用 Node.js 環境執行完整檢查 |
+| `bun check:bun`     | 使用 Bun 環境執行完整檢查     |
+
+### 🔧 代碼規範
+
+專案使用 ESLint 和 Prettier 進行代碼規範檢查與格式化。
+
+- **ESLint 配置**：`eslint.config.js`
+- **Prettier 配置**：`.prettierrc.json`
+
+### 📝 提交規範
+
+專案使用 Conventional Commits 規範提交訊息：
+
+1. 標題 - 簡潔清楚限一行，使用祈使句，不以標點符號結尾。
+2. 本文 - 條列式敘述，可空。
+3. 結尾 - 備註單號。
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+#### 提交類型
+
+- `feat`: 新功能
+- `fix`: 修復錯誤
+- `docs`: 文檔更新
+- `style`: 代碼格式調整
+- `refactor`: 重構代碼
+- `perf`: 性能優化
+- `test`: 測試相關
+- `chore`: 構建過程或輔助工具的變動
 
 ## 📁 專案結構
 
 ```
 src/
+├── api/             # API 請求封裝
 ├── assets/          # 靜態資源
-├── components/      # 共用組件
+│   ├── fonts/       # 字體文件
+│   ├── icons/       # 圖標資源
+│   └── images/      # 圖片資源
+├── components/      # 共用組件 - 命名規則：大駝峰命名
+│   ├── base/        # 基礎組件 - 如 BaseInput、BaseButton 等
+│   ├── custom/      # 自定義組件 - 如 Dialog、MemberTable 等
+│   └── layout/      # 佈局組件
+├── composables/     # Vue 組合式函數 - vue hooks，命名規則：小寫命名且 use開頭，如 useLang.ts
+├── locales/         # 國際化文件
+├── plugins/         # Vue 插件
 ├── router/          # 路由配置
 ├── stores/          # Pinia 狀態管理
+├── types/           # TypeScript 類型定義
+├── utils/           # 工具函數 - 純 JS 自訂函數
 ├── views/           # 頁面組件
 ├── App.vue          # 根組件
 └── main.ts          # 應用入口
@@ -104,45 +175,6 @@ src/
 - **Husky** - `.husky/`
 - **Commitlint** - `commitlint.config.js`
 
-## 📦 專案套件
-
-### 核心依賴
-
-- `vue` - Vue 3 核心庫
-- `pinia` - 狀態管理
-- `vue-router` - 路由管理
-
-### 開發工具
-
-- `@vitejs/plugin-vue` - Vite 的 Vue 插件
-- `unplugin-auto-import` - 自動導入 API
-- `unplugin-vue-components` - 自動導入組件
-
-### 代碼質量
-
-- `eslint` - 代碼檢查
-- `prettier` - 代碼格式化
-- `husky` - Git hooks
-- `lint-staged` - 暫存區代碼檢查
-
-### 測試
-
-- `vitest` - 測試框架
-- `@vue/test-utils` - Vue 組件測試
-- `jsdom` - 瀏覽器環境模擬
-
-## 🛠️ 開發指令
-
-| 指令                 | 說明           |
-| -------------------- | -------------- |
-| `npm run dev`        | 啟動開發伺服器 |
-| `npm run build`      | 建置生產版本   |
-| `npm run preview`    | 預覽生產版本   |
-| `npm run type-check` | 類型檢查       |
-| `npm run lint`       | 代碼檢查       |
-| `npm run format`     | 代碼格式化     |
-| `npm run test:unit`  | 執行單元測試   |
-
 ## 🧪 測試
 
 執行單元測試：
@@ -151,113 +183,15 @@ src/
 npm run test:unit
 ```
 
-## 🔧 代碼規範
+## 📦 專案套件
 
-專案使用 ESLint 和 Prettier 進行代碼規範檢查與格式化。
-
-- **ESLint 配置**：`eslint.config.js`
-- **Prettier 配置**：`.prettierrc.json`
-
-## 📝 提交規範
-
-專案使用 Conventional Commits 規範提交訊息：
-
-```
-<type>[optional scope]: <description>
-
-[optional body]
-
-[optional footer(s)]
-```
-
-### 提交類型
-
-- `feat`: 新功能
-- `fix`: 修復錯誤
-- `docs`: 文檔更新
-- `style`: 代碼格式調整
-- `refactor`: 重構代碼
-- `perf`: 性能優化
-- `test`: 測試相關
-- `chore`: 構建過程或輔助工具的變動
-
-### tsconfig.app.json 設定說明
-
-- **exclude 設定**
-  - `src/**/__tests__/*` - 排除測試資料夾
-  - `**/*.spec.ts` - 排除單元測試檔案
-
-- **compilerOptions 設定**
-  - `tsBuildInfoFile` - 統一快取目錄
-  - `module: "ESNext"` - 為 Vite / Bun / ESM 架構設計
-  - `moduleResolution: "Bundler"` - 相容 Vite/Bun 的解析方式
-  - `paths` - 支援 `@` 作為 `src` 目錄的別名
-  - `target: "ES2022"` - 與 Node.js 22 / Bun 相容（可視需求微調）
-  - `strict: true` - 開啟嚴格模式，提升安全性與錯誤提示（如需放寬可調）
-  - `types: ["node"]` - 支援 node 類型（必要）
-
-### tsconfig.node.json 設定說明
-
-- **extends**: "@tsconfig/node22/tsconfig.json" - 繼承 Node.js 22 的預設配置
-- **noEmit**: true - 不輸出編譯後的檔案
-- **tsBuildInfoFile**: "./node_modules/.tmp/tsconfig.config.tsbuildinfo" - 指定類型檢查快取檔案位置
-- **module**: "ESNext" - 支援 Bun 與 ESM 模組系統
-- **moduleResolution**: "Bundler" - 為 Vite / Bun 設計的模組解析策略
-- **types**: ["node"] - 包含 Node.js 全域型別定義
-- **include**: 包含以下設定檔：
-  - vite.config.\*
-  - vitest.config.\*
-  - cypress.config.\*
-  - nightwatch.conf.\*
-  - playwright.config.\*
-  - eslint.config.\*
-
-### tsconfig.vitest.json 設定說明
-
-- **extends**: "./tsconfig.app.json" - 繼承應用程式的主要 TypeScript 配置
-
-- **include**: 包含以下檔案：
-  - `src/**/__tests__/*` - 包含所有測試目錄
-  - `env.d.ts` - 全域型別定義
-
-- **compilerOptions**:
-  - `tsBuildInfoFile`: "./node_modules/.tmp/tsconfig.vitest.tsbuildinfo" - 獨立的類型檢查快取檔案
-  - `module`: "ESNext" - 與 Vite 一致的 ESM 模組系統
-  - `moduleResolution`: "Bundler" - 為 Bun / Vite 設計的模組解析策略
-  - `types`: ["node", "jsdom"] - 為 Vitest 測試環境提供必要的型別定義
-  - `lib`: ["DOM", "ESNext"] - 為測試提供 DOM 與最新 JavaScript 語法支援
-
-## 專案指令說明
-
-### 開發相關
-
-- `npm run dev` - 啟動開發伺服器
-- `npm run preview` - 預覽生產環境建置結果
-- `npm run type-check` - 執行 TypeScript 類型檢查
-- `npm run lint` - 檢查程式碼風格
-- `npm run lint:fix` - 自動修正常見的程式碼風格問題
-- `npm run format` - 使用 Prettier 格式化程式碼
-
-### 建置與測試
-
-- `npm run build` - 執行類型檢查後建置專案
-- `npm run build-only` - 僅執行建置，不進行類型檢查
-- `npm test:unit` - 執行單元測試
-
-### 專案設置與驗證
-
-- `npm run reinstall` - 重新安裝所有依賴套件
-- `npm run check:node` - 使用 Node.js 環境執行完整建置與測試流程
-- `npm run check:bun` - 使用 Bun 環境執行完整建置與測試流程
-
-## 專案套件說明
-
-### 主要依賴
+### 核心依賴
 
 - **Vue 3** - 現代化的前端框架
 - **Vue Router** - 官方路由管理
 - **Pinia** - Vue 官方狀態管理庫
 - **TypeScript** - 型別安全的 JavaScript 超集
+- **PrimeVue** - 豐富的 UI 元件庫
 
 ### 開發工具
 
@@ -268,7 +202,7 @@ npm run test:unit
 - **Vitest** - 單元測試框架
 - **Vue Test Utils** - Vue 組件測試工具
 
-### 代碼規範
+### 代碼質量
 
 - **@commitlint** - Git commit 訊息規範
 - **husky** - Git hooks 工具
@@ -299,3 +233,61 @@ npm run test:unit
 
 - **npm-run-all2** - 並行執行多個 npm scripts
 - **jiti** - 即時轉譯的 require 替代方案
+
+### 核心框架
+
+- Vue 3.5.18
+- TypeScript 5.8
+- Vite 7.0.6
+- Pinia 3.0.3 (狀態管理)
+- Vue Router 4.5.1 (路由管理)
+- PrimeVue 4.3.7 (UI 元件庫)
+
+### 開發工具
+
+- Bun 1.2.20 (包管理)
+- ESLint 9.33.0 (代碼檢查)
+- Prettier 3.6.2 (代碼格式化)
+- Vitest 3.2.4 (測試框架)
+- Testing Library Vue 8.1.0 (組件測試)
+- Husky + lint-staged (Git Hooks)
+
+## 技術棧詳情
+
+### TypeScript 配置詳情
+
+#### tsconfig.app.json
+
+- **exclude 設定**
+  - `src/**/__tests__/*` - 排除測試資料夾
+  - `**/*.spec.ts` - 排除單元測試檔案
+
+- **compilerOptions 設定**
+  - `tsBuildInfoFile` - 統一快取目錄
+  - `module: "ESNext"` - 為 Vite / Bun / ESM 架構設計
+  - `moduleResolution: "Bundler"` - 相容 Vite/Bun 的解析方式
+  - `paths` - 支援 `@` 作為 `src` 目錄的別名
+  - `target: "ES2022"` - 與 Node.js 22 / Bun 相容
+  - `strict: true` - 開啟嚴格模式
+  - `types: ["node"]` - 支援 node 類型
+
+#### tsconfig.node.json
+
+- **extends**: "@tsconfig/node22/tsconfig.json"
+- **noEmit**: true
+- **tsBuildInfoFile**: "./node_modules/.tmp/tsconfig.config.tsbuildinfo"
+- **module**: "ESNext"
+- **moduleResolution**: "Bundler"
+- **types**: ["node"]
+- **include**: 包含所有設定檔 (vite.config._, vitest.config._ 等)
+
+#### tsconfig.vitest.json
+
+- **extends**: "./tsconfig.app.json"
+- **include**: 包含測試目錄和全域型別定義
+- **compilerOptions**:
+  - `tsBuildInfoFile`: "./node_modules/.tmp/tsconfig.vitest.tsbuildinfo"
+  - `module`: "ESNext"
+  - `moduleResolution`: "Bundler"
+  - `types`: ["node", "jsdom"]
+  - `lib`: ["DOM", "ESNext"]

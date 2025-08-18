@@ -22,6 +22,7 @@
 - 在花括號 `{}` 前後加上空格
 - 在運算符前後加上空格
 - 在逗號後加上空格
+- 使用 Pug 模板時，保持一致的縮進層級
 
 ### 命名規範
 
@@ -35,6 +36,7 @@
 
 - 使用單引號 `'` 作為字串的引號
 - 模板字串使用反引號 `` ` ``
+- 在 Pug 模板中使用雙引號 `""` 作為屬性值引號
 
 ## Vue 元件
 
@@ -161,6 +163,7 @@
 3. **組合式函數**
    - 將可重用的邏輯提取到組合式函數中
    - 使用 `use` 前綴命名組合式函數，例如 `useUserData`
+   - 組合式函數應放在 `src/composables` 目錄下
 
 4. **Props 驗證**
    - 總是為 props 定義類型和驗證規則
@@ -171,6 +174,16 @@
    - 使用 `defineEmits` 明確聲明事件
    - 事件名稱使用 kebab-case
    - 傳遞有意義的事件參數
+
+6. **Pug 模板**
+   - 使用簡潔的 Pug 語法
+   - 保持一致的縮進
+   - 對於複雜的模板邏輯，考慮使用 TypeScript 計算屬性代替
+
+7. **PrimeVue 組件**
+   - 使用 PascalCase 導入 PrimeVue 組件
+   - 遵循 PrimeVue 的文檔進行組件配置
+   - 自定義主題應放在 `src/styles/theme` 目錄下
 
 ## TypeScript 規範
 
@@ -350,19 +363,23 @@ type GetReturnType<T> = T extends (...args: any[]) => infer R ? R : never;
 src/
 ├── assets/          # 靜態資源（圖片、字體、圖標等）
 ├── components/      # 共用元件
-│   ├── ui/         # 基礎 UI 元件
-│   ├── layout/     # 佈局元件
-│   └── icons/      # SVG 圖標元件
-├── composables/    # 組合式函數
-├── router/         # 路由配置
-├── stores/         # Pinia store
-├── styles/         # 全局樣式
-├── types/          # TypeScript 類型定義
-├── utils/          # 工具函數
-└── views/          # 頁面元件
-    ├── HomeView.vue
-    └── AboutView.vue
+├── composables/     # 組合式函數
+├── lang/            # 國際化文件
+├── router/          # 路由配置
+├── stores/          # Pinia store
+├── styles/          # 全局樣式
+└── utils/           # 工具函數
 ```
+
+### 主要技術棧
+
+- Vue 3.5 + TypeScript
+- Vite 7.x
+- Pinia 3.x (狀態管理)
+- PrimeVue 4.x (UI 組件庫)
+- Vue Router 4.x (路由)
+- Vitest (測試框架)
+- ESLint + Prettier (代碼檢查與格式化)
 
 ## Git 提交規範
 
@@ -456,16 +473,29 @@ Closes #123
 - 測試元件行為而非實現細節
 - 使用 `@testing-library/vue` 進行組件測試
 - 測試邊界條件和錯誤處理
+- 測試文件應與被測試文件同名，後綴為 `.spec.ts` 或 `.test.ts`
+- 使用 `describe` 和 `it` 組織測試用例
 
-### 整合測試
+### 組件測試
 
-- 測試多個元件的交互
-- 模擬用戶行為
+- 使用 `@vue/test-utils` 進行組件測試
+- 測試組件的 props、事件和插槽
+- 模擬用戶交互和異步操作
 
-### E2E 測試
+### 測試覆蓋率
 
-- 使用 Cypress 或 Playwright 進行端到端測試
-- 測試關鍵用戶流程
+- 使用 Vitest 的內置覆蓋率報告
+- 目標覆蓋率：
+  - 語句覆蓋率：80%+
+  - 分支覆蓋率：70%+
+  - 函數覆蓋率：80%+
+  - 行覆蓋率：80%+
+
+### 測試命令
+
+- `bun test:unit`: 運行單元測試
+- `bun test:watch`: 監聽模式運行測試
+- `bun test:coverage`: 生成測試覆蓋率報告
 
 ## 文檔
 
