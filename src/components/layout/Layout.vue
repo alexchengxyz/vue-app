@@ -8,15 +8,15 @@ div.layout
 </template>
 
 <style scoped>
-  .layout {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
-  .main {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-  }
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
 </style>

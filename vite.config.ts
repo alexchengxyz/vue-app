@@ -46,4 +46,18 @@ export default defineConfig({
     port: 5173, // 設定開發伺服器執行在 5173 port
     strictPort: true, // 若 5173 被佔用，Vite 不會自動切換成其他 port，直接報錯
   },
+  css: {
+    devSourcemap: false,
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use "@/styles/_mixins.scss" as *;
+          @use "@/styles/_variables.scss" as *;
+        `,
+      },
+    },
+  },
+  build: {
+    sourcemap: false,
+  },
 });
