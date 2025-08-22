@@ -22,7 +22,7 @@ export default defineConfig({
     }),
     AutoImport({
       imports: ['vue', 'vue-router', 'pinia'],
-      dts: 'src/auto-imports.d.ts',
+      dts: 'src/types/auto-imports.d.ts',
       eslintrc: {
         enabled: true,
         // 正確寫法：key 應為 `filepath` 而非 `filePath`
@@ -31,7 +31,7 @@ export default defineConfig({
     }),
     Components({
       dirs: ['src/components'],
-      dts: 'src/components.d.ts',
+      dts: 'src/types/components.d.ts',
       resolvers: [PrimeVueResolver()],
     }),
   ],
@@ -40,5 +40,10 @@ export default defineConfig({
       // 支援 @ 為 src 快捷路徑
       '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  server: {
+    host: '0.0.0.0', // 允許外部訪問（所有 IP 皆可存取本機 server）
+    port: 5173, // 設定開發伺服器執行在 5173 port
+    strictPort: true, // 若 5173 被佔用，Vite 不會自動切換成其他 port，直接報錯
   },
 });
