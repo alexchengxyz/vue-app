@@ -1,4 +1,4 @@
 <template lang="pug">
-Layout
-  RouterView
+  div.about
+    h1 關於
 </template>
