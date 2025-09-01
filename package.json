@@ -42,6 +42,7 @@
   "dependencies": {
     "@primeuix/themes": "^1.2.3",
     "axios": "^1.11.0",
+    "dayjs": "^1.11.18",
     "modern-normalize": "^3.0.1",
     "pinia": "^3.0.3",
     "primevue": "^4.3.7",

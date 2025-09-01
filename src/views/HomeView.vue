@@ -8,12 +8,17 @@
   )
 
   DatePicker(v-model="date")
+  div {{ dayjs(date).format(yearDateTime) }}
 </template>
 
 <script setup lang="ts">
 import useLang from '@/composables/useLang';
+import dayjs from 'dayjs';
+import { constants } from '@/utils';
 
 const { t, locale, changeLang } = useLang();
+
+const { yearDateTime } = constants;
 
 const langOptions = [
   { name: 'English', code: 'en' },
